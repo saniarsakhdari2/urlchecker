@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Is this Link Dangerous?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            text-align: center;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #4682b4;
+        }
+
+        #urlInput {
+            width: 60%;
+            padding: 10px;
+            font-size: 18px;
+            margin-bottom: 20px;
+            border: 2px solid #4682b4;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            background-color: #4682b4;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        #result {
+            font-size: 24px;
+            color: #1e90ff;
+            margin-top: 20px;
+        }
+
+        .dangerous {
+            color: red;
+            font-weight: bold;
+        }
+
+        .safe {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Is This Link Dangerous?</h1>
+    <input type="text" id="urlInput" placeholder="Enter URL here">
+    <br>
+    <button onclick="checkLink()">Check</button>
+
+    <div id="result"></div>
+
+    <script>
+        function checkLink() {
+            const url = document.getElementById('urlInput').value;
+            const result = document.getElementById('result');
+
+            if (url.trim() === "") {
+                result.textContent = "Please enter a URL.";
+                result.className = "";
+                return;
+            }
+
+            // Simulated check (in a real app, you'd send this to a backend or use an API to check the URL)
+            if (url.includes('danger')) {
+                result.textContent = "This link is DANGEROUS!";
+                result.className = "dangerous";
+            } else {
+                result.textContent = "This link is SAFE!";
+                result.className = "safe";
+            }
+        }
+    </script>
+
+</body>
+</html>
